@@ -52,9 +52,7 @@ itri_dma_async_memcpy(struct dma_chan *chan, void *dest,
         dma_src = dma_map_single(dev->dev, src, len, DMA_TO_DEVICE);
         dma_dest = dma_map_single(dev->dev, dest, len, DMA_FROM_DEVICE);
 
-        flags = DMA_CTRL_ACK |
-                DMA_COMPL_SRC_UNMAP_SINGLE |
-                DMA_COMPL_DEST_UNMAP_SINGLE;
+        flags = DMA_CTRL_ACK;
 
         tx = dev->device_prep_dma_memcpy(chan, dma_dest, dma_src, len, flags);
 
